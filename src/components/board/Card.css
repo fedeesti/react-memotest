@@ -20,6 +20,10 @@
     transform: rotateY(180deg);
 }
 
+.cards.find {
+    opacity: 0;
+}
+
 #front,
 #back{
     display: block;

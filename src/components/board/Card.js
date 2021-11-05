@@ -8,7 +8,7 @@ const Card = ({src, alt, id, flipped, onClick}) => {
             key={id}
             id={id}
         >
-        <img src={front} alt={alt} id="front" onClick={(e) => onClick(e)} />
+        <img src={front} alt={alt} id="front" onClick={() => onClick(id, alt)}/>
         <img src={src} alt={alt} id="back" />
         </div>
     )
