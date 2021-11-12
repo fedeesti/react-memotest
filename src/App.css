@@ -11,3 +11,11 @@
   margin: auto;
   display: flex;
 }
+
+#timer {
+  font-size: 24px;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,25 +1,52 @@
 import React from 'react';
 import Board from './components/board/Board';
-import cards from './components/initial-cards';
+import Timer from './components/score/Timer';
+import WinnerScore from './components/score/WinnerScore';
+import useMemotestGame from './components/customHooks/useMemotestGame';
+import useTimer from './components/customHooks/useTimer';
 import './App.css';
 
-// { useEffect, useState }
-
 function App() {
-  // const [count, setCount] = useState(0);
-  // const gameEnded = false;
+  const { cards, handleCard, isFlipped, gameEnded, animating, restart } = useMemotestGame();
+  const { minutes, seconds} = useTimer(gameEnded);
+  let result = 0;
+
+  if(gameEnded) {
+    let totalMinutes = (minutes !== 0 && minutes < 10) ?  `0${minutes}` : '';
+    let totalSeconds = seconds > 10 ? seconds : `0${seconds}`;
+        if(totalMinutes === ''){
+            result = totalSeconds + ' segundos';
+        } else {
+            result = totalMinutes + ' minutos con ' + totalSeconds + ' segundos';
+        }
+  }
 
   return (
-    <div className="App">
+    <main className="App">
       <h1>Memotest</h1>
-      {/* <WinnerScore show={gameEnded ? true : false} onRestart=''></WinnerScore> */}
-      <section className="memotest">
-        <Board cards={cards}></Board>
+      <WinnerScore
+        show={gameEnded}
+        restart={restart}
+        result={result}
+      />
+      <section className={'memotest ' + (gameEnded ? 'hidden' : '')}>
+        <Board
+          cards={cards}
+          handleCard={handleCard}
+          flipped={isFlipped}
+          animating={animating}
+          gameEnded={gameEnded}
+        />
       </section>
-
-      {/* <Timer count={count}></Timer> */}
-    </div>
+      <Timer
+        minutes={minutes}
+        seconds={seconds}
+        gameEnded={gameEnded}
+        onRestart={restart}
+      />
+    </main>
   );
 }
+
 
 export default App;

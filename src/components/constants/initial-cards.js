@@ -1,11 +1,11 @@
-import cell from './img/cell.png';
-import gohan from './img/gohan.png';
-import goku from './img/goku.png';
-import gotenks from './img/gotenks.png';
-import majinboo from './img/majinboo.png';
-import piccolo from './img/piccolo.png';
-import saibaman from './img/saibaman.png';
-import vegeta from './img/vegeta.png';
+import cell from '../assets/cell.png';
+import gohan from '../assets/gohan.png';
+import goku from '../assets/goku.png';
+import gotenks from '../assets/gotenks.png';
+import majinboo from '../assets/majinboo.png';
+import piccolo from '../assets/piccolo.png';
+import saibaman from '../assets/saibaman.png';
+import vegeta from '../assets/vegeta.png';
 
 const cardArray = [
         {
@@ -42,7 +42,4 @@ const cardArray = [
         }
 ];
 
-const allCards = cardArray.concat(cardArray);
-const cards = allCards.sort(() => 0.5 - Math.random());
-
-export default cards;
+export default cardArray;
