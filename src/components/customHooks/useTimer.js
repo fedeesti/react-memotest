@@ -1,29 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
 
-// const useTimer = gameEnded => {
-//     const [minutes, setMinutes] = useState(0);
-//     const [seconds, setSeconds] = useState(0);
+const useInterval = (callback, delay) => {
+  const savedCallback = useRef();
 
-//     useEffect(() => {
-//         let timer = setTimeout(() => {
-//             setSeconds(seconds + 1);
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
 
-//             if(seconds === 59){
-//                 setSeconds(0);
-//                 setMinutes(minutes + 1);
-//             }
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
 
-//             if(gameEnded) {
-//                 clearTimeout(timer);
-//             }
-//         }, 1000);
-//         return () => clearTimeout(timer);
-//     }, [seconds]);
-
-//     return { seconds, minutes};
-// }
-
-// export default useTimer;
 
 const useTimer = gameEnded => {
     const [minutes, setMinutes] = useState(0);
@@ -36,27 +30,10 @@ const useTimer = gameEnded => {
           setSeconds(0);
           setMinutes(minutes + 1);
       }
+
     }, !gameEnded ? 1000 : null);
 
     return { minutes, seconds };
-  }
-
-  function useInterval(callback, delay) {
-    const savedCallback = useRef();
-
-    useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-
-    useEffect(() => {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }, [delay]);
   }
 
   export default useTimer;

@@ -7,8 +7,8 @@ import useTimer from './components/customHooks/useTimer';
 import './App.css';
 
 function App() {
-  const { cards, handleCard, isFlipped, gameEnded, animating, restart } = useMemotestGame();
-  const { minutes, seconds} = useTimer(gameEnded);
+  const { cards, handleCard, gameEnded, animating, restart } = useMemotestGame();
+  const { minutes, seconds, onRestart} = useTimer(gameEnded);
   let result = 0;
 
   if(gameEnded) {
@@ -27,13 +27,13 @@ function App() {
       <WinnerScore
         show={gameEnded}
         restart={restart}
+        onRestart={onRestart}
         result={result}
       />
       <section className={'memotest ' + (gameEnded ? 'hidden' : '')}>
         <Board
           cards={cards}
           handleCard={handleCard}
-          flipped={isFlipped}
           animating={animating}
           gameEnded={gameEnded}
         />
@@ -42,7 +42,7 @@ function App() {
         minutes={minutes}
         seconds={seconds}
         gameEnded={gameEnded}
-        onRestart={restart}
+        restart={restart}
       />
     </main>
   );
