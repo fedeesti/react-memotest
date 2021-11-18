@@ -3,6 +3,7 @@ import cardArray from '../constants/initial-cards';
 
 const createInitialCards = () => {
     let allCards = [];
+
     cardArray.forEach(({name, img, flipped}) => {
         allCards.push({
             name,
@@ -17,6 +18,7 @@ const createInitialCards = () => {
             key: `${name}-2`
         });
     })
+
     let newCards = allCards.sort(() => 0.5 - Math.random());
     return newCards;
 }
@@ -31,6 +33,7 @@ const useMemotestGame = () => {
     const handleCard = (card, id) => {
         let newIsPair = [...currentPairs, {card, id}];
         setCurrentPairs(newIsPair);
+
         const isFlipped = {...card, flipped: true};
         let cardsCopy = [...cards];
         cardsCopy.splice(id, 1, isFlipped);

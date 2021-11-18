@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const { cards, handleCard, gameEnded, animating, restart } = useMemotestGame();
-  const { minutes, seconds, onRestart} = useTimer(gameEnded);
+  const { minutes, seconds } = useTimer(gameEnded);
   let result = 0;
 
   if(gameEnded) {
@@ -27,7 +27,6 @@ function App() {
       <WinnerScore
         show={gameEnded}
         restart={restart}
-        onRestart={onRestart}
         result={result}
       />
       <section className={'memotest ' + (gameEnded ? 'hidden' : '')}>
@@ -47,6 +46,5 @@ function App() {
     </main>
   );
 }
-
 
 export default App;
