@@ -2,8 +2,8 @@ import React from 'react';
 import Board from './components/board/Board';
 import Timer from './components/score/Timer';
 import WinnerScore from './components/score/WinnerScore';
-import useMemotestGame from './components/customHooks/useMemotestGame';
-import useTimer from './components/customHooks/useTimer';
+import useMemotestGame from './hooks/useMemotestGame';
+import useTimer from './hooks/useTimer';
 import './App.css';
 
 function App() {
@@ -41,7 +41,6 @@ function App() {
         minutes={minutes}
         seconds={seconds}
         gameEnded={gameEnded}
-        restart={restart}
       />
     </main>
   );

@@ -6,7 +6,7 @@ const WinnerScore = ({ show, result, restart = () => {} }) => {
         <span className="winner-card-text">
           Has completado el juego en {result}
         </span>
-        <button onClick={restart}>¿Jugar de nuevo?</button>
+        <button className='winner-button' onClick={restart}>¿Jugar de nuevo?</button>
       </div>
     );
   };

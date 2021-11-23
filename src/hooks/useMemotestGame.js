@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import cardArray from '../constants/initial-cards';
+import cardArray from '../components/constants/initial-cards';
 
 const createInitialCards = () => {
     let allCards = [];
