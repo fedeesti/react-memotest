@@ -9,6 +9,7 @@
     font-size: 20px;
     flex-direction: column;
     color: black;
+    opacity: 0;
 }
 
 .winner-card:not(.winner-card--hidden) {
@@ -20,7 +21,7 @@
 }
 
 .winner-card--hidden {
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
 }
 
