@@ -1,4 +1,4 @@
-import front from '../assets/fondo.jpg';
+import front from '../../assets/fondo.jpg';
 import './Card.css';
 
 const Card = ({src, alt, id, flipped, onClick, animating, card}) => {

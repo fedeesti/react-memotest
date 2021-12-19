@@ -20,10 +20,9 @@ const useInterval = (callback, delay) => {
 }
 
 
-const useTimer = (gameEnded) => {
+const useTimer = (gameEnded, wonPairs) => {
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
-    console.log('de useTimer ' + gameEnded);
 
     useInterval(() => {
       setSeconds(seconds + 1);
@@ -32,7 +31,15 @@ const useTimer = (gameEnded) => {
         setSeconds(0);
         setMinutes(minutes + 1);
       }
+
     }, gameEnded ? null : 1000);
+
+    useEffect(() => {
+      if(wonPairs === 0) {
+        setSeconds(0);
+        setMinutes(0);
+      }
+    }, [wonPairs]);
 
     return { minutes, seconds };
   }

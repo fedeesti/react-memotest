@@ -1,5 +1,5 @@
 import Card from './Card';
-import background from '../assets/shenlong.jpg';
+import background from '../../assets/shenlong.jpg';
 import './Board.css';
 
 const Board = ({cards, handleCard, animating }) => {

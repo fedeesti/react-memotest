@@ -7,8 +7,8 @@ import useTimer from './hooks/useTimer';
 import './App.css';
 
 function App() {
-  const { cards, handleCard, gameEnded, animating, restart } = useMemotestGame();
-  const { minutes, seconds } = useTimer(gameEnded);
+  const { cards, handleCard, gameEnded, animating, restart, wonPairs } = useMemotestGame();
+  const { minutes, seconds } = useTimer(gameEnded, wonPairs);
   let result = 0;
 
   if(gameEnded) {
