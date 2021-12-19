@@ -3,6 +3,9 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.2em;
 }
 
 .memotest {
@@ -13,12 +16,26 @@
   border: 4px solid black;
   margin: auto;
   display: flex;
+  border-radius: 6px;
 }
 
 #timer {
   font-size: 24px;
+  font-weight: 700;
 }
 
 .hidden {
   display: none;
+}
+
+@media only screen and  (max-width: 700px) {
+  .App {
+    row-gap: 5em;
+  }
+}
+
+@media only screen and  (max-width: 330px) {
+  .App {
+    row-gap: 3.5em;
+  }
 }

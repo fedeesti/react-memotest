@@ -63,7 +63,7 @@ const useMemotestGame = () => {
         setAnimating(false);
     }
 
-    return { cards, handleCard, gameEnded, animating, restart};
+    return { cards, handleCard, gameEnded, animating, restart, wonPairs};
   }
 
 export default useMemotestGame;
