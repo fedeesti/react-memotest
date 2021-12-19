@@ -2,7 +2,7 @@ import './WinnerScore.css';
 
 const WinnerScore = ({ show, result, restart = () => {} }) => {
     return (
-      <div className={'winner-card ' + (show ? '' : 'winner-score--hidden')}>
+      <div className={'winner-card' + (show ? '--hidden' : '')}>
         <span className="winner-card-text">
           Has completado el juego en {result}
         </span>
