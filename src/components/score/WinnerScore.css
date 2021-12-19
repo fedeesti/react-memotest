@@ -20,7 +20,6 @@
 
 .winner-card--hidden {
     opacity: 1;
-    /* pointer-events: none; */
     font-weight: 700;
 }
 
